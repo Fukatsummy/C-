@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -132,20 +133,65 @@ namespace HomeWork1
             #endregion Task_4
 
             #region Task_5
-
+            /*
             String date;
             Console.WriteLine("Введите дату MM:dd:yyy");
             date = Console.ReadLine();
             DateTime dt = Convert.ToDateTime(date);
-            Console.WriteLine(dt.ToLongDateString());
+            Console.WriteLine(dt.ToLongDateString());*/
+                // Как добавить день недели и сезон не разобралась.
+                #endregion Task_5
 
-            #endregion Task_5
+                #region Task_6
+                /*
+                Console.WriteLine("Введите температуру: ");
+                int temp = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Введите шкалу: ");
+                string str =(Console.ReadLine());
+                double t = 0;
+                if(str=="F")
+                {
+                    t = temp * 1.8 + 32;
+                }
+                if (str == "C")
+                {
+                    t = (temp - 32) / 1.8;
+                }
+                Console.WriteLine("Результат: {0}", temp);*/
+                #endregion Task_6
 
-            #region Task_6
+                #region Task_7
+                /*
+                Console.WriteLine("Введите начальное число диапазона: ");
+                int start = Int32.Parse(Console.ReadLine());
+                Console.WriteLine("Введите конечное число диапазона: ");
+                int end = Int32.Parse(Console.ReadLine());
+                if(start>end)
+                {
+                    int buffer = start;
+                    start = end;
+                    end = buffer;
+                }
+                Console.WriteLine("Ваш диапазон четных чисел:");
+                for(int i=start; i<end;i++)
+                {
+                    if(i%2==0)
+                    {
+                        Console.Write(i + " ");
+                    }
+                }*/
 
-            #endregion Task_6
+                #endregion Task_7
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            }
         }
+    }
+
+    #region Task_6
+
+    #endregion Task_6
+
+    // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+}
     }
 }
