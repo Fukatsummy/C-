@@ -12,7 +12,7 @@ namespace HomeWork2
         {
             #region Task_1
 
-            
+
             /* Console.WriteLine("Введите элементы массива:");
              int[] A = Console.ReadLine().Split().Select(int.Parse).ToArray();
             int sum = A.Where((n, i) => i % 2 == 0).Sum();
@@ -110,6 +110,47 @@ namespace HomeWork2
             */
             #endregion Task_2
 
+            #region Task_3
+
+            double a;
+            double b;
+            double result;
+            char op;
+
+            Console.WriteLine("Введите первое число: ");
+            a = Convert.ToDouble(Console.ReadLine());//конвертируем string  B double
+
+            Console.WriteLine("Введите арифметическое действие: ");
+            op = Convert.ToChar(Console.ReadLine());
+
+            Console.WriteLine("Введите второе число: ");
+            b = Convert.ToDouble(Console.ReadLine());
+
+            if (op == '+')
+            {
+                result = a + b;
+                Console.WriteLine(+a + "+" + b + "=" + result);
+            }
+            else if (op == '-')
+            {
+                result = a - b;
+                Console.WriteLine(+a + "-" + b + "=" + result);
+            }
+            else if (op == '*') 
+            {
+                result = a * b;
+                Console.WriteLine(+a + "*" + b + "=" + result);
+            }
+            else if(op=='/')
+            {
+                result = a / b;
+                Console.WriteLine(+a + "/" + b + "=" + result);
+            }
+            else
+            {
+                Console.WriteLine("Ошибка! Повторите ввод.");
+            }
+            #endregion Task_3
         }
     }
 }
