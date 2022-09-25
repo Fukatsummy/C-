@@ -56,14 +56,14 @@ namespace HomeWork2
             #endregion Task_1
 
             #region Task_2
-            
+            /*
             Random random = new Random();
             int[,] massive = new int[5, 5];
             for(int i=0;i<5;i++)
             {
                 for(int j=0;j<5;j++)
                 {
-                    massive[i, j] = random.Next(-100,100);
+                    massive[i, j] = random.Next(-100, 100);
                 }
             }
             for (int i = 0; i < 5; i++)
@@ -74,7 +74,40 @@ namespace HomeWork2
                 }
                 Console.Write("\n");
             }
-            
+            IEnumerable<int> Convertedmassive = massive.Cast<int>();
+            int MinValue = Convertedmassive.Min();
+            int MaxValue = Convertedmassive.Max();
+            Console.WriteLine("Минимальный элемент: " + MinValue);
+            Console.WriteLine("Максимальный элемент: " + MaxValue);
+
+            int imin =0,imax=0,jmin=0,jmax=0;
+            int sum = 0;
+            for (int i = 0; i < 5; i++)//ищем индексы максимума и минимума
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    if (massive[i, j] == MinValue)
+                    {
+                        imin = i;
+                        jmin = j;
+                    }
+                    if (massive[i, j] == MaxValue)
+                    {
+                        imax = i;
+                        jmax = j;
+                    }
+                }
+            }
+            for(int i=imin;i<imax;i++)  //сумма
+            {
+                for(int j=imin;j<imax;j++)
+                {
+                   sum += massive[i, j];
+                }
+            }
+            Console.WriteLine(sum);
+            Console.ReadLine();
+            */
             #endregion Task_2
 
         }
