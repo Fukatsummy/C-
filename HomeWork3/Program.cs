@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Третью  задачу никак не могу закончить, не понимаю что не так.
+
 namespace HomeWork3
 {
     class Program
     {
-        
-
         static void Main(string[] args)
         {
             #region Task_1
@@ -43,18 +43,27 @@ namespace HomeWork3
 
             #region Task_3
 
-            //Создайте класс «Веб - сайт». Необходимо хранить в
-            //полях класса: название сайта, путь к сайту, описание
-            //сайта, ip адрес сайта.Реализуйте методы класса для ввода
-            //данных, вывода данных, реализуйте доступ к отдельным
+            //Создайте класс «Веб - сайт». Необходимо хранить в полях класса: название сайта, путь к сайту, описание
+            //сайта, ip адрес сайта.Реализуйте методы класса для ввода данных, вывода данных, реализуйте доступ к отдельным
             //полям через методы класса. 
-            List<Web_site> list = new List<Web_site>();
-            list.Add(new Web_site("Inventors", "https://invent.com/", "Website creation and maintenance", 74.125.0.0));
 
+            /*List<Web_site> list = new List<Web_site>();
+            list.Add(new Web_site("Inventors", "https://invent.com/", "Website creation and maintenance", "74.125.0.0"));
+            */
+            Web_site web = new Web_site("", "", "", "");
+            web.NewWeb_site(web);
+
+            /*Console.WriteLine("Название сайта");
+            string name = Console.ReadLine();
+            Console.WriteLine("Как нас найти: ");
+            string path = Console.ReadLine();
+            Console.WriteLine("Мы занимаемся  ");
+            string description = Console.ReadLine();
+            Console.WriteLine("Мы находимся по {4} адресу");
+            string ip = Console.ReadLine();*/
 
             #endregion Task_3
         }
-
     }
     #region Task_1
     /*class Quadro
@@ -92,18 +101,18 @@ namespace HomeWork3
     }*/
     #endregion Task_1
 
-    public IEnumerator GetEnumerator()
-    {
-        return ((IEnumerable)Name).GetEnumerator();
-    }
-    public int CompareTo(object obj)
-    {
-        return Name.CompareTo((string)obj);
-    }
-    public int Compare(object obj, object obj2)
-    {
-        return ((Web_site)obj).Name.CompareTo((string)obj);
-    }
+    //public IEnumerator GetEnumerator()
+    //{
+    //    return ((IEnumerable)Name).GetEnumerator();
+    //}
+    //public int CompareTo(object obj)
+    //{
+    //    return Name.CompareTo((string)obj);
+    //}
+    //public int Compare(object obj, object obj2)
+    //{
+    //    return ((Web_site)obj).Name.CompareTo((string)obj);
+    //}
 
     class Web_site : IEnumerable, IComparable
     {
@@ -115,9 +124,9 @@ namespace HomeWork3
         public string Name{get;set;}
         public string Path{get;set; }
         public string Description{get;set; }
-        public int Ip{ get; set ; }
+        public string Ip{ get; set ; }
 
-        public Web_site(string name, string path,string description,int ip)
+        public Web_site(string name, string path,string description,string ip)
         {
             Name = name;
             Path = path;
@@ -140,8 +149,36 @@ namespace HomeWork3
         {
             return ((Web_site)obj).Name.CompareTo((string)obj);
         }
+
+        internal void NewWeb_site(Web_site web)
+        {
+            throw new NotImplementedException();
+        }
     }
-    class Web
+    class Data_Input
+    {
+        string name, developer;
+        public Data_Input(string name, string developer)
+        {
+            this.name = name;
+            this.developer = developer;
+        }
+        public string GetInfo()
+        {
+            return string.Format(name, developer);
+        }
+    }
+    public Web_site NewWeb_site(Web_site web)
+    {
+        Console.Write("Введите название сайта:"); string name = Console.ReadLine();
+        Console.Write("Введите путь к сайту:"); string addres = Console.ReadLine();
+        Console.Write("Введите описание сайта:"); string description = Console.ReadLine();
+        Console.Write("Введите IP адрес сайта:"); string IP = Console.ReadLine();
+
+        Console.WriteLine("Название магазина: " + name + "\nПуть к сайту: " + addres + "\nОписание сайта:" + description + "\nIP адрес сайта: " + IP);
+        return web;
+    }
+    /*class Web
     {
         List<Web_site> Web_sites;
         string Name { get; set; }
@@ -157,8 +194,20 @@ namespace HomeWork3
         {
             Console.WriteLine("Добро пожаловать!");
         }
-        
-            
+        public void GetAllDevelopment()
+        {
+            int index = 1;
+            foreach (Web_site web_Site in Web_sites)
+            {
+                Console.WriteLine("Индекс: {0}{1}", web_Site);
+            }
+        }
+        public void AddDevelopment (Web_site web_Site)
+        {
+            Web_site.Add(web_Site);
+        }
 
-    }
+
+
+    }*/
 }
