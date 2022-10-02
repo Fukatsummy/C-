@@ -1,6 +1,7 @@
 ﻿using System;
 using static System.Console;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,8 @@ using System.Threading.Tasks;
 //using System.Windows.Forms;
 
 
-namespace LessonFour
-{
+//namespace Morze
+/*{
     internal class Program
     {
         static void Main(string[] args)
@@ -17,15 +18,16 @@ namespace LessonFour
             string startText;
             Console.WriteLine("Введите текст для перевода в азбуку Морзе");
             startText = Console.ReadLine();
-            //startText = ConvertToMorse.TextToMorse(startText);
+            startText = ConvertToMorse.TextToMorse(startText);
             Console.WriteLine("Ваш текст в виде азбуки Морзе" + startText);
         }
     }
-}
+}*/
 //Создайте приложение для перевода обычного текст в азбуку Морзе.Пользователь вводит текст.Приложение
 //отображает введенный текст азбукой Морзе.Используйте механизмы пространств имён.
 namespace HomeWork_4
 {
+    
     internal class Morze
     {
         char[] Alfavit = new char[]
@@ -53,7 +55,6 @@ namespace HomeWork_4
         }
         private void Encrypt(string stroca)
         {
-            string stroca = textBox1.Text;
             stroca = stroca.ToUpper();
             string buffer = "";
             int index;
@@ -66,12 +67,11 @@ namespace HomeWork_4
                 }
                 //Write($"{buffer}");
                 buffer = buffer.Remove(buffer.Length -1);
-                return buffer;
+                //return buffer;
             }
         }
-        private void Decrypt(string stroca)
+        private string Decrypt(string stroca)
         {
-            string stroca = texrBox.Text;
             string[] sumb = stroca.Split(' ');
             string buffer = "";
             int index;
