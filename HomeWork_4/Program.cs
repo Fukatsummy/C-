@@ -1,12 +1,14 @@
 ﻿using System;
 using static System.Console;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 //using Morse;
-//using System.Windows.Forms;
+using System.Windows.Forms;
 
 
 //namespace Morze
@@ -27,6 +29,15 @@ using System.Threading.Tasks;
 //отображает введенный текст азбукой Морзе.Используйте механизмы пространств имён.
 namespace HomeWork_4
 {
+    public partial class Form_1 : Form
+    {
+       
+        public Form_1()
+        {
+            InitializeComponent();
+        }
+        
+    }
     
     internal class Morze
     {
@@ -58,21 +69,21 @@ namespace HomeWork_4
             stroca = stroca.ToUpper();
             string buffer = "";
             int index;
-            foreach (char c in stroca)
+            foreach (char c in stroca)// поиск нужного элемента
             {
                 if (c != ' ')
                 {
-                    index = Array.IndexOf(Morse, c);
+                    index = Array.IndexOf(Morse, c);//сохраняем символ в переменную index
                     buffer += Alfavit[index]+ " ";
                 }
                 //Write($"{buffer}");
-                buffer = buffer.Remove(buffer.Length -1);
+                buffer = buffer.Remove(buffer.Length -1);//удаляет последний символ в стоке
                 //return buffer;
             }
         }
         private string Decrypt(string stroca)
         {
-            string[] sumb = stroca.Split(' ');
+            string[] sumb = stroca.Split(' ');//разбивает строку sumb на массив строк
             string buffer = "";
             int index;
             foreach (string s in sumb)
