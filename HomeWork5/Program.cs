@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace HomeWork5
 {
@@ -166,5 +167,29 @@ namespace HomeWork5
         {
             Console.WriteLine(ToString());
         }
+        public override bool Equals(object obj)
+        {
+            return obj is Book book &&
+                   _Bname == book._Bname &&
+                   _Baddress == book._Baddress &&
+                   _Bprof == book._Bprof &&
+                   _Bemail == book._Bemail &&
+                   _Bphone == book._Bphone &&
+                   _Barea == book._Barea;
+        }
+
+        public override int GetHashCode()
+        {
+            GetHashCode hash = new GetHashCode();
+            hash.Add(_Bname);
+            hash.Add(_Baddress);
+            hash.Add(_Bprof);
+            hash.Add(_Bemail);
+            hash.Add(_Bphone);
+            hash.Add(_Barea);
+            return hash.ToHashCode();
+        }
     }
+
+   
 }
