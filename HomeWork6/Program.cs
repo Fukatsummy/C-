@@ -88,7 +88,7 @@ namespace HomeWork6
                I_II  I__I_____[]_|_[]_____I
                I II__I  I     XXXXXXX     I
             ~~~~~'   '~~~~~~~~~~~~~~~~~~~~~~~~";
-            Console.WriteLine(house);
+            Console.WriteLine(house +"\nСтроительство дома завершено.");
         }
           
     }
