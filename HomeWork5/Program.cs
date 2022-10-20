@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Net;
 using System.Threading.Tasks;
-using System.Xml.Linq;
+//using System.Xml.Linq;
 
 namespace HomeWork5
 {
@@ -25,8 +26,8 @@ namespace HomeWork5
             int storeroom = 15; store.Barea -= storeroom;
             store.GetShopInfo();
             Console.WriteLine(store==store1);
-            Book shop = new Book("", "", "", "", "", 0);
-            shop.AddShop(shop);
+            Book shop = new Book("Сказочник", "ул.Ленина 17", "Книжный", "+7(863)888-77-66", "fairy@mail.ru", 55);//("", "", "", "", "", 0);
+            shop = shop.AddShop( shop);
             shop.GetShopInfo();
         }
     }
@@ -81,115 +82,94 @@ namespace HomeWork5
     {
         Console.WriteLine(ToString());
     }*/
-    class Book
+class Book
+{
+    string _Bname;
+    string _Baddress;
+    string _Bprof;
+    string _Bphone;
+    string _Bemail;
+    int _Barea;
+    public string Name
     {
-        string _Bname;
-        string _Baddress;
-        string _Bprof;
-        string _Bphone;
-        string _Bemail;
-        int _Barea;
-        public string Name
-        {
-            get => _Bname; set => _Bname = value;
-        }
-        public string Address
-        {
-            get => _Baddress; set => _Baddress = value;
-        }
-        public string Profile
-        {
-            get => _Bprof; set => _Bprof = value;
-        }
-        public string Phone
-        {
-            get => _Bphone; set => _Bphone = value;
-        }
-        public string Email
-        {
-            get => _Bemail; set => _Bemail = value;
-        }
-        public int Barea
-        {
-            get => _Barea; set => _Barea = value;
-        }
-        //Constructor
-        public Book(string name, string address, string prof, string phone, string email, int area)
-        {
-            _Bname = name;
-            _Baddress = address;
-            _Bprof = prof;
-            _Bphone = phone;
-            _Bemail = email;
-            _Barea = area;
-        }
-        public static int operator +(Book Barea, int addarea)
-        {
-            Barea._Barea += addarea;
-            return Barea._Barea;
-        }
-        public static bool operator ==(Book Barea, Book otherarea)
-        {
-            return Barea._Barea == otherarea._Barea;
-        }
-        public static bool operator !=(Book Barea, Book otherarea)
-        {
-            return Barea._Barea != otherarea._Barea;
-        }
-        public static bool operator <(Book Barea, Book otherarea)
-        {
-            return Barea._Barea < otherarea._Barea;
-        }
-        public static bool operator >(Book Barea, Book otherarea)
-        {
-            return Barea._Barea > otherarea._Barea;
-        }
-        public static int operator -(Book Barea, int lowerarea)
-        {
-            Barea._Barea -= lowerarea;
-            return Barea._Barea;
-        }
-        public Book AddShop(Book shop)
-        {
-            Console.Write("Введите название магазина:"); string shname = Console.ReadLine();
-            Console.Write("Введите адресс магазина:"); string address = Console.ReadLine();
-            Console.Write("Введите профиль магазина:"); string buns = Console.ReadLine();
-            Console.Write("Введите номер телефона магазина:"); string phone = Console.ReadLine();
-            Console.Write("Введите эл.почту магазина:"); string gemail = Console.ReadLine();
-            Console.Write("Введите площадь магазина:"); int area = Int32.Parse(Console.ReadLine());
-            return shop;
-        }
-        public override string ToString()
-        {
-            return " Название магазина: " + Name + ";\n Адресс: " + Address + ";\n Специализация магазина: " + Profile + ";\n Контактный номер: " + Phone + ";\n Адресс электронной почты: " + Email + ";\n Площадь: " + Barea.ToString() + " кв. метров";
-        }
-        public void GetShopInfo()
-        {
-            Console.WriteLine(ToString());
-        }
-        public override bool Equals(object obj)
-        {
-            return obj is Book book &&
-                   _Bname == book._Bname &&
-                   _Baddress == book._Baddress &&
-                   _Bprof == book._Bprof &&
-                   _Bemail == book._Bemail &&
-                   _Bphone == book._Bphone &&
-                   _Barea == book._Barea;
-        }
-
-        public override int GetHashCode()
-        {
-            GetHashCode hash = new GetHashCode();
-            hash.Add(_Bname);
-            hash.Add(_Baddress);
-            hash.Add(_Bprof);
-            hash.Add(_Bemail);
-            hash.Add(_Bphone);
-            hash.Add(_Barea);
-            return hash.ToHashCode();
-        }
+        get => _Bname; set => _Bname = value;
     }
-
-   
+    public string Address
+    {
+        get => _Baddress; set => _Baddress = value;
+    }
+    public string Profile
+    {
+        get => _Bprof; set => _Bprof = value;
+    }
+    public string Phone
+    {
+        get => _Bphone; set => _Bphone = value;
+    }
+    public string Email
+    {
+        get => _Bemail; set => _Bemail = value;
+    }
+    public int Barea
+    {
+        get => _Barea; set => _Barea = value;
+    }
+    //Constructor
+    public Book(string name, string address, string prof, string phone, string email, int area)
+    {
+        _Bname = name;
+        _Baddress = address;
+        _Bprof = prof;
+        _Bphone = phone;
+        _Bemail = email;
+        _Barea = area;
+    }
+    public static int operator +(Book Barea, int addarea)
+    {
+        Barea._Barea += addarea;
+        return Barea._Barea;
+    }
+    public static bool operator ==(Book Barea, Book otherarea)
+    {
+        return Barea._Barea == otherarea._Barea;
+    }
+    public static bool operator !=(Book Barea, Book otherarea)
+    {
+        return Barea._Barea != otherarea._Barea;
+    }
+    public static bool operator <(Book Barea, Book otherarea)
+    {
+        return Barea._Barea < otherarea._Barea;
+    }
+    public static bool operator >(Book Barea, Book otherarea)
+    {
+        return Barea._Barea > otherarea._Barea;
+    }
+    public static int operator -(Book Barea, int lowerarea)
+    {
+        Barea._Barea -= lowerarea;
+        return Barea._Barea;
+    }
+        
+        public Book AddShop(Book shop)
+    {
+        Console.Write("Введите название магазина:"); string shname = Console.ReadLine();
+        Console.Write("Введите адресс магазина:"); string address = Console.ReadLine();
+        Console.Write("Введите профиль магазина:"); string buns = Console.ReadLine();
+        Console.Write("Введите номер телефона магазина:"); string phone = Console.ReadLine();
+        Console.Write("Введите эл.почту магазина:"); string gemail = Console.ReadLine();
+        Console.Write("Введите площадь магазина:"); int area = Int32.Parse(Console.ReadLine());
+        shop = new Book(shname, address, buns, phone, gemail, area);
+            return shop;
+    }
+    public override string ToString()
+    {
+        return " Название магазина: " + Name + ";\n Адресс: " + Address + ";\n Специализация магазина: " + Profile + ";\n Контактный номер: " + Phone + ";\n Адресс электронной почты: " + Email + ";\n Площадь: " + Barea.ToString() + " кв. метров";
+    }
+    public void GetShopInfo()
+    {
+        Console.WriteLine(ToString());
+    }
+ } 
 }
+
